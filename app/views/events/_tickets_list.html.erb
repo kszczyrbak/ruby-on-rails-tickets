@@ -1,8 +1,7 @@
-
-<h2>Tickets</h2>
+<div class="container">
 
 <% if tickets.length > 0 %>
-<table class="table table-striped table-dark text-center">
+<table class="table table-striped mt-4">
   <thead>
     <tr>
       <th>Name</th>
@@ -11,7 +10,7 @@
       <th>Price</th>
       <th>Phone</th>
       <th>Email address</th>
-      <th colspan="2"></th>
+      <th>Actions</th>
     </tr>
   </thead>
 
@@ -24,15 +23,22 @@
         <td><%= ticket.price %></td>
         <td><%= ticket.phone %></td>
         <td><%= ticket.email_address %></td>
-        <td><%= link_to 'Show', ticket %></td>
-        <% if @ticket.user == current_user %> 
-          <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+        <td>
+          <%= link_to 'Show', ticket, :class => "btn btn-primary" %>
+        <% if ticket.user == current_user %> 
+          <%= link_to 'Edit', edit_ticket_path(ticket), :class => "btn btn-primary" %>
+          <%= link_to 'Remove', ticket, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
         <% end %>
-        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
 <% else %>
-No tickets bought!
-<% end %> 
+<div class="text-center">
+  <h2>No tickets bought yet!<h2>
+</div>
+<% end %>
+</div>
+</div>

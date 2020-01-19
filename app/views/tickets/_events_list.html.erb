@@ -1,8 +1,10 @@
-<ul>
-    <% for event in events %>
-    <li>
-    Id: <%= event.id %>
-    <%= link_to event.artist, "/events/#{event.id}" %>
-    </li>
-    <% end %> 
-</ul>
+<div class="container margin-top">
+<div class="wrapper flex-center">
+<div class="events">
+<ul class="text-left">
+<% for event in events %>
+    <li><%= link_to event.artist, "/events/#{event.id}" %></li>
+  <% end %> </ul>
+</div>
+
+</div>

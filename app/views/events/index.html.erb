@@ -1,7 +1,10 @@
+<div class="container margin-top">
+
 <h1> All events</h1>
 <ul>
 <% for event in @events %>
     <li><%= link_to event.artist, "/events/#{event.id}" %></li>
   <% end %> </ul>
-<%= link_to 'New event', new_event_path %>
-<%= link_to 'Back', root_path %>
+  <%= link_to 'New event', new_event_path, :class => "btn btn-success" %>
+  <%= link_to 'Back', root_path,  :class => "btn btn-primary" %>
+</div>

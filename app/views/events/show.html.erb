@@ -1,32 +1,37 @@
-<h1>Event</h1>
-<p>
-  <strong>Artist:</strong>
-  <%= @event.artist %>
-</p>
+<div class="row">
+  <div class="ml-4 col-md-4">
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+    <%= link_to 'Back', events_path, :class => "btn btn-primary" %>
 
-<p>
-  <strong>Price low:</strong>
-  <%= @event.price_low %>
-</p>
+    <h1>Event</h1>
+    <p>
+      <strong>Artist:</strong>
+      <%= @event.artist %>
+    </p>
 
-<p>
-  <strong>Price high:</strong>
-  <%= @event.price_high %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @event.description %>
+    </p>
 
-<p>
-  <strong>Event date:</strong>
-  <%= @event.event_date %>
-</p>
+    <p>
+      <strong>Price low:</strong>
+      <%= @event.price_low %>
+    </p>
+
+    <p>
+      <strong>Price high:</strong>
+      <%= @event.price_high %>
+    </p>
+
+    <p>
+      <strong>Event date:</strong>
+      <%= @event.event_date %>
+    </p>
+  </div>
+  <div class="col-md-6">
+    <%= render "new_ticket", ticket: current_user.tickets.new(:event_id=>@event.id), :class => "btn btn-success" %> 
+  </div>
+</div>
 
 <%= render "tickets_list", tickets: @event.tickets %>
-
-<h2>New ticket</h2>
-<%= render "new_ticket", ticket: current_user.tickets.new(:event_id=>@event.id) %> 
-
-<%= link_to 'Back', events_path %>

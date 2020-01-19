@@ -1,32 +1,54 @@
+<div class="container">
+
+<div class="card mx-auto" style="width: 30rem;">
+  <div class="card-title text-center mt-2">
+      <strong><h2>Ticket details</h2></strong>
+  </div>
+  <div class="card-body text-center">
+
+<% if @ticket.name %>
 <p>
   <strong>Name:</strong>
   <%= @ticket.name %>
 </p>
+<% end %>
 
+<% if @ticket.seat_id_seq %>
 <p>
   <strong>Seat id seq:</strong>
   <%= @ticket.seat_id_seq %>
 </p>
-
+<%end %>
+<% if @ticket.address %>
 <p>
   <strong>Address:</strong>
   <%= @ticket.address %>
 </p>
-
+<%end %>
+<% if @ticket.price %>
 <p>
   <strong>Price:</strong>
   <%= @ticket.price %>
 </p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @ticket.phone %>
-</p>
-
+<%end %>
+<% if @ticket.email_address %>
 <p>
   <strong>Email address:</strong>
   <%= @ticket.email_address %>
 </p>
-
-<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
-<%= link_to 'Back', tickets_path %>
+<%end %>
+<% if @ticket.phone %>
+<p>
+  <strong>Phone:</strong>
+  <%= @ticket.phone %>
+</p>
+<%end %>
+ </div>
+  <div class="card-footer text-center">
+      <% if @ticket.user == current_user %>
+      <%= link_to 'Edit', edit_ticket_path(@ticket), :class => "btn btn-success" %>
+      <% end %>
+      <%= link_to 'Back', tickets_path, :class => "btn btn-primary" %>
+  </div>
+</div>
+</div>

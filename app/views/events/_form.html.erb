@@ -11,32 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :seat_id_seq %>
-    <%= form.text_field :seat_id_seq %>
+    <%= form.text_field :seat_id_seq, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="fieldform-group">
     <%= form.label :address %>
     <%= form.text_area :address %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :price %>
     <%= form.text_field :price %>
   </div>
 
-  <div class="field">
+  <div class="field form-group ">
     <%= form.label :phone %>
     <%= form.text_field :phone %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :email_address %>
     <%= form.text_field :email_address %>
   </div>

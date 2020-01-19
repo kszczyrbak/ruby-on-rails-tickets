@@ -1,10 +1,11 @@
-
+<div class="container text-center">
 
 <h1>Events</h1>
 <%= render 'events_list', events: Event.all %>
 
-<h1>Editing Ticket</h1>
-<%= render 'form', ticket: @ticket %>
+<h2>Editing Ticket</h2>
+<%= render 'new_ticket', ticket: @ticket %>
 
-<%= link_to 'Show', @ticket %> |
-<%= link_to 'Back', tickets_path %>
+</div>
+<%= link_to 'Show', @ticket, :class => "btn btn-primary" %>
+<%= link_to 'Back', tickets_path, :class => "btn btn-primary" %>

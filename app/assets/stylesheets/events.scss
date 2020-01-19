@@ -1,3 +1,31 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
+.btn > a {
+    color: white;
+}
+
+a.btn:visited {
+    color: white !important;
+}
+
+a {
+    font-size: 20px;
+}
+
+
+
+a:hover {
+    
+}
+
+
+.margin-top {
+    margin-top: 30px;
+}
