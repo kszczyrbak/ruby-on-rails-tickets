@@ -4,4 +4,7 @@ class Ticket < ApplicationRecord
   validates :price, :presence => true
 
   belongs_to :event
+  accepts_nested_attributes_for :event
+
+  belongs_to :user
 end

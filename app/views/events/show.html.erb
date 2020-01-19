@@ -1,5 +1,4 @@
-<p id="message"><%= flash[:message]  %></p>
-
+<h1>Event</h1>
 <p>
   <strong>Artist:</strong>
   <%= @event.artist %>
@@ -25,9 +24,9 @@
   <%= @event.event_date %>
 </p>
 
-<%= render "new_ticket", ticket:Ticket.new(:event_id=>@event.id) %> 
+<%= render "tickets_list", tickets: @event.tickets %>
 
-<%= render "tickets_list", tickets:@event.tickets %>
+<h2>New ticket</h2>
+<%= render "new_ticket", ticket: current_user.tickets.new(:event_id=>@event.id) %> 
 
-<%= link_to 'Edit', edit_ticket_path(@event) %> |
 <%= link_to 'Back', events_path %>

@@ -1,0 +1,8 @@
+<ul>
+    <% for event in events %>
+    <li>
+    Id: <%= event.id %>
+    <%= link_to event.artist, "/events/#{event.id}" %>
+    </li>
+    <% end %> 
+</ul>

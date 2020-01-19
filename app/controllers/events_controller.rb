@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
   before_action :check_logged_in, :only => [:new, :create]
+  before_action :authenticate_user!, except: [:index]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
     @events = Event.all
