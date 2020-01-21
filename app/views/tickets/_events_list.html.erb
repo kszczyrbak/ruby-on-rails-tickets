@@ -3,7 +3,7 @@
 <div class="events">
 <ul class="text-left">
 <% for event in events %>
-    <li><%= link_to event.artist, "/events/#{event.id}" %></li>
+    <li><%= link_to "ID: " + String(event.id) + " " + event.artist, "/events/#{event.id}" %></li>
   <% end %> </ul>
 </div>
 
