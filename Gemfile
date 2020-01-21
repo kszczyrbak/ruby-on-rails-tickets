@@ -16,6 +16,8 @@ gem "turbolinks", "~> 5"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem "jbuilder", "~> 2.7"
 
+gem "sqlite3"
+
 gem "bootstrap", "~> 4.0.0"
 
 gem "jquery-rails"
@@ -42,14 +44,6 @@ end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem "web-console", ">= 3.3.0"
-end
-
-group :development do
-  gem "sqlite3"    #gem to use in development environment
-end
-
-group :production do
-  gem "pg"         #gem to use in production environment
 end
 
 group :test do
