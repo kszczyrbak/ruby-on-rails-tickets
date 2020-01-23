@@ -1,41 +1,49 @@
 <div class="container">
 
-<% if @tickets.length > 0 %>
-<table class="table table-striped mt-4">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Seat id seq</th>
-      <th>Address</th>
-      <th>Price</th>
-      <th>Phone</th>
-      <th>Email address</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
+  <div class='title mt-4 pt-4'>
+    <h1>Tickets list</h1>
+  </div>
 
-  <tbody>
-    <% @tickets.each do |ticket| %>
-      <tr>
-        <td><%= ticket.name %></td>
-        <td><%= ticket.seat_id_seq %></td>
-        <td><%= ticket.address %></td>
-        <td><%= ticket.price %></td>
-        <td><%= ticket.phone %></td>
-        <td><%= ticket.email_address %></td>
-        <td>
-          <%= link_to 'Show', ticket, :class => "btn btn-primary" %>
-        <% if ticket.user == current_user %> 
-          <%= link_to 'Edit', edit_ticket_path(ticket), :class => "btn btn-success" %>
-          <%= link_to 'Remove', ticket, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+  <% if @tickets.length > 0 %>
+    <table class="table table-striped mt-4">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Seat id seq</th>
+          <th>Address</th>
+          <th>Price</th>
+          <th>Phone</th>
+          <th>Email address</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <% @tickets.each do |ticket| %>
+          <tr>
+            <td><%= ticket.name %></td>
+            <td><%= ticket.seat_id_seq %></td>
+            <td><%= ticket.address %></td>
+            <td><%= ticket.price %></td>
+            <td><%= ticket.phone %></td>
+            <td><%= ticket.email_address %></td>
+            <td>
+              <%= link_to 'Show', ticket, :class => "btn btn-primary" %>
+            <% if ticket.user == current_user %> 
+              <%= link_to 'Edit', edit_ticket_path(ticket), :class => "btn btn-success" %>
+              <%= link_to 'Remove', ticket, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+            <% end %>
+            </td>
+          </tr>
         <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<% else %>
-  No tickets bought!
-<% end %> 
-</div>
+      </tbody>
+    </table>
+  <% else %>
+      No tickets bought!
+  <% end %>
+  
+  
+    <%= link_to 'New Ticket', new_ticket_path, :class => "btn btn-success m-2" %>
+    <%= link_to 'Back', root_path, :class => "btn btn-primary m-2" %>
+  </div>
 </div>

@@ -1,34 +1,36 @@
 <div class="container">
 
-<div class="col-sm-6">
-<div class="title text-center">
-<h2>New ticket</h2>
-<%= bootstrap_form_with(model: ticket, local: true) do |form| %>
-  <% if ticket.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
-
-      <ul>
-        <% ticket.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+  <div class="col-sm-6">
+    <div class="title text-center">
+      <h2>New ticket</h2>
+      <br/>
+      <%= bootstrap_form_with(model: ticket, local: true) do |form| %>
+        <% if ticket.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+      
+            <ul>
+              <% ticket.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+      
+        <%= form.text_field :name %>
+        <%= form.text_field :seat_id_seq %>
+        <%= form.text_area :address %>
+        <%= form.text_field :price %>
+        <%= form.text_field :phone %>
+        <%= form.text_field :email_address %>
+        <%= form.hidden_field :event_id %>
+      
+        <div class="actions">
+          <%= form.submit "New ticket", :class => "btn btn-success" %>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <%= form.text_field :name %>
-  <%= form.text_field :seat_id_seq %>
-  <%= form.text_area :address %>
-  <%= form.text_field :price %>
-  <%= form.text_field :phone %>
-  <%= form.text_field :email_address %>
-  <%= form.hidden_field :event_id %>
-
-  <div class="actions">
-    <%= form.submit "New ticket", :class => "btn btn-success" %>
   </div>
-</div>
-</div>
-</div>
-<% end %>
+  <%# end of form %>
+  <% end %>
 </div>

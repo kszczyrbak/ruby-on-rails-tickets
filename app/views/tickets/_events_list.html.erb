@@ -1,10 +1,17 @@
 <div class="container margin-top">
-<div class="wrapper flex-center">
-<div class="events">
-<ul class="text-left">
-<% for event in events %>
-    <li><%= link_to "ID: " + String(event.id) + " " + event.artist, "/events/#{event.id}" %></li>
-  <% end %> </ul>
-</div>
-
+    
+    <div class="wrapper d-flex flex-column align-items-center m-4 pt-4">
+        <h2>Events: </h2>
+        <div class="events mt-4">
+            
+            <ul class="text-left">
+                
+                <% for event in events %>
+                    <li><%= link_to "ID: " + String(event.id) + " " + event.artist, "/events/#{event.id}" %></li>
+                    <br/>
+                <% end %> 
+                
+            </ul>
+        </div>
+    </div>
 </div>

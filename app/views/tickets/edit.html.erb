@@ -4,8 +4,11 @@
 <%= render 'events_list', events: Event.all %>
 
 <h2>Editing Ticket</h2>
+<div class="mt-4 pt-4">
 <%= render 'new_ticket', ticket: @ticket %>
+    <%= link_to 'Show', @ticket, :class => "btn btn-primary" %>
+    <%= link_to 'Back', tickets_path, :class => "btn btn-primary" %>
+</div>
 
 </div>
-<%= link_to 'Show', @ticket, :class => "btn btn-primary" %>
-<%= link_to 'Back', tickets_path, :class => "btn btn-primary" %>
+

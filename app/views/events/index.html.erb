@@ -1,10 +1,45 @@
 <div class="container margin-top">
 
-<h1> All events</h1>
-<ul>
-<% for event in @events %>
-    <li><%= link_to event.artist, "/events/#{event.id}" %></li>
-  <% end %> </ul>
-  <%= link_to 'New event', new_event_path, :class => "btn btn-success" %>
-  <%= link_to 'Back', root_path,  :class => "btn btn-primary" %>
+    <div class="title mt-4 pt-4">
+        <h1> Events list</h1>
+    </div>
+    <div>
+      <% if @events.length > 0 %>
+        <table class="table table-striped mt-4">
+          <thead>
+            <tr>
+              <th>Artist</th>
+              <th>Description</th>
+              <th>Price low</th>
+              <th>Price high</th>
+              <th>Event date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+        
+          <tbody>
+            <% @events.each do |event| %>
+              <tr>
+                <td><%= event.artist %></td>
+                <td><%= event.description %></td>
+                <td><%= event.price_low %></td>
+                <td><%= event.price_high %></td>
+                <td><%= event.event_date %></td>
+                <td>
+                  <%= link_to 'Show', event, :class => "btn btn-primary" %>
+                  <%= link_to 'Remove', event, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+          No events held!
+      <% end %> 
+      </div>
+
+        <%= link_to 'New event', new_event_path, :class => "btn btn-success" %>
+        
+        <%= link_to 'Back', root_path,  :class => "btn btn-primary" %>
+    </div>
 </div>
